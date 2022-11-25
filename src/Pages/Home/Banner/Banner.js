@@ -2,8 +2,8 @@ import React from 'react';
 
 const Banner = () => {
     return (
-        <div>
-            <div className="hero " style={{ backgroundImage: `url("https://placeimg.com/1000/800/arch")` }}>
+        <div >
+            <div className="hero " style={{ backgroundImage: `url("https://placeimg.com/1000/800/arch")`,height:'600px' }}>
   <div className="hero-overlay bg-opacity-60"></div>
   <div className="hero-content text-center text-neutral-content">
     <div className="max-w-md">
