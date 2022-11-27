@@ -30,8 +30,9 @@ const Categories = () => {
                 <div className="card-body items-center text-center">
                   <h2 className="card-title">{c?.name}</h2>
                   <div className="card-actions">
+                  <Link to={`/products/${c.category_id}`}>
                     <button className="btn btn-primary">Book Now</button>
-                  </div>
+                  </Link>                  </div>
                 </div>
               </div>
             </div>
