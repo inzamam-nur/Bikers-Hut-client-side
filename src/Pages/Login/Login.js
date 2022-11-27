@@ -7,11 +7,7 @@ const Login = () => {
         <div class="container px-6 py-12 h-full">
           <div class="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
             <div class="md:w-8/12 lg:w-6/12 mb-12 md:mb-0">
-              <img
-                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
-                class="w-full"
-                alt="Phone image"
-              />
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" class="w-full" alt="img"/>
             </div>
             <div class="md:w-8/12 lg:w-5/12 lg:ml-20">
               <form>
@@ -69,7 +65,8 @@ const Login = () => {
 
                 <a
                   class="px-7 py-3 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full flex justify-center items-center mb-3"
-                  style="background-color: #3b5998"
+                  style={{backgroundColor: "#3b5998"}}
+
                   href="#!"
                   role="button"
                   data-mdb-ripple="true"
@@ -89,7 +86,7 @@ const Login = () => {
                 </a>
                 <a
                   class="px-7 py-3 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full flex justify-center items-center"
-                  style="background-color: #55acee"
+                  style={{backgroundColor: "#55acee"}}
                   href="#!"
                   role="button"
                   data-mdb-ripple="true"
