@@ -10,7 +10,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { toast } from "react-toastify";
-import  app  from "../../Firebase/Firebase.config";
+import app from "../../Firebase/Firebase.config";
 
 export const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
@@ -61,36 +61,22 @@ const AuthProvider = ({ children }) => {
     const islogout = window.confirm(" Log Out ?");
 
     if (islogout) {
-      return signOut(auth).then(() => {
-        localStorage.removeItem('accessToken')
-      })
-      .catch(e=>console.log(e))
+      return signOut(auth)
+        .then(() => {
+          localStorage.removeItem("accessToken");
+        })
+        .catch((e) => console.log(e));
     }
   };
 
-const gitProvider = new GithubAuthProvider()
-
-const gitSignIn = ()=>{
-   signInWithPopup(auth,gitProvider)
-      .then(result =>{
-       toast('success github logIn')
-       console.log(result.user);
-      })
-      .catch(err=>console.log(err))
-}
-
-
-
-
+  const gitProvider = new GithubAuthProvider();
 
   const authInfo = {
     createUser,
     login,
     logout,
     user,
-    gitSignIn,
     googleSignIn,
-    
   };
   return (
     <div>

@@ -7,9 +7,11 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { getAuth, updateProfile } from "firebase/auth";
 import { AuthContext } from "../../Context/AuthProvider/AUthProvider";
 import app from '../../Firebase/Firebase.config'
+import useToken from "../../hooks/useToken";
 
 const Signup = () => {
   const {  googleSignIn, createUser } = useContext(AuthContext);
+  //   console.log(user);
   const auth = getAuth(app);
 
   const {
@@ -31,6 +33,11 @@ const Signup = () => {
   };
 
 
+  const [tokenEmail,setTokenEmail] =useState('')
+  const [token]=useToken(tokenEmail)
+  if(token){
+    return navigate(from, { replace: true });
+  }
 
 
   const handleSignup = (data) => {
@@ -52,8 +59,8 @@ const Signup = () => {
         })
           .then(() => {
             toast.success("sign up");
-           
-            savedDB(user);
+            setTokenEmail(email)
+            addTodb(user);
             setError("");
             reset();
           })
@@ -62,8 +69,8 @@ const Signup = () => {
       .catch((err) => setError(err.message));
   };
 
-  const savedDB = (user) => {
-    fetch(`http://localhost:3008/users`, {
+  const addTodb = (user) => {
+    fetch(`http://localhost:5000/users`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -75,7 +82,7 @@ const Signup = () => {
         console.log(data);
         
       
-        alert("User Added to Db");
+        alert("Added successfully");
       });
   };
 
