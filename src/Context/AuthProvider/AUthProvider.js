@@ -27,6 +27,8 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
+  
+
   // for currentUser //
   const [user, setUser] = useState(null);
 
@@ -58,7 +60,7 @@ const AuthProvider = ({ children }) => {
   };
 
   const logout = () => {
-    const islogout = window.confirm(" Log Out ?");
+    const islogout = window.confirm(" Are You sure You Want To logout");
 
     if (islogout) {
       return signOut(auth)
@@ -69,7 +71,6 @@ const AuthProvider = ({ children }) => {
     }
   };
 
-  const gitProvider = new GithubAuthProvider();
 
   const authInfo = {
     createUser,
