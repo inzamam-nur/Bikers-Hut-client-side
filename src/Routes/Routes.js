@@ -4,6 +4,7 @@ import Blogs from "../Pages/Blogs/Blogs";
 import Errorpage from "../Pages/Errorpage/Errorpage";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
+import Products from "../Pages/Products/Products";
 import Signup from "../Pages/Signup/Signup";
 
 
@@ -29,7 +30,12 @@ const router = createBrowserRouter([
             {
                 path: '/blogs',
                 element: <Blogs></Blogs>
-            }
+            },
+            {
+                path: "/products/:name",
+                loader: ({ params }) =>fetch(`http://localhost:5000/products/${params.name}`),
+                element: <Products></Products>,
+              },
          
         ]
     }
