@@ -1,8 +1,16 @@
+import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import BookingModal from "../BookingModal/BookingModal";
 
 const Products = () => {
   const products = useLoaderData();
+  const [product, setproducts] = useState({});
+  const [isModal ,setModal] = useState(true)
 
+  const productData = (data) => {
+    setproducts(data);
+    // console.log(data);
+  };
   return (
     <div className="grid lg:grid-cols-2 mt-5 mb-5 place-items-center">
       {products.map((product) => {
@@ -24,13 +32,23 @@ const Products = () => {
                   </div>
                 </div>
                 <div className="card-actions">
-                  <button className="btn btn-primary">Book Now</button>
+                <label
+                    onClick={() => productData(product)}
+                    htmlFor="my-modal-6"
+                    className="btn btn-outline btn-error"
+                  >
+                    Book Now
+                  </label>
                 </div>
               </div>
             </div>
           </>
         );
       })}
+        {
+      isModal&&
+      <BookingModal product={product} setModal={setModal}></BookingModal>
+    }
     </div>
   );
 };

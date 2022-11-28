@@ -1,4 +1,3 @@
-import { getAuth } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { HiEye, HiEyeOff } from "react-icons/hi";
@@ -39,7 +38,6 @@ const Login = () => {
     const email = data.email;
     const password = data.password;
     const usertype = data.user;
-    const user = { email, password, usertype };
     // console.log(user);
     login(email, password)
       .then((result) => {
@@ -55,7 +53,7 @@ const Login = () => {
     setError("")
   };
   return (
-    <div className="max-w-md mx-auto my-5 rounded">
+    <div className="max-w-md mx-auto my-5 shadow-lg pb-20 pt-20 pr-10 pl-10  rounded">
       <h1 className="text-3xl my-3 text-center"> Log In please </h1>
       <form onSubmit={handleSubmit(submitLogin)} className="">
         {/* <Header /> */}
@@ -117,6 +115,7 @@ const Login = () => {
         </div>
 
         <select
+        name='usertype'
           {...register("user", { required: true })}
           className="w-full py-3 my-2"
         >
