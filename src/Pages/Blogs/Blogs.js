@@ -92,7 +92,7 @@ const Blog = () => {
               aria-expanded="false"
               aria-controls="flush-collapseOne"
             >
-              What is JWT, and how does it work?
+              How does prototypical inheritance work?
             </button>
           </h2>
           <div
@@ -102,15 +102,11 @@ const Blog = () => {
             data-bs-parent="#accordionFlushExample"
           >
             <div className="accordion-body py-4 px-5">
-              JWT, or JSON Web Token, is an open standard that allows a client
-              and a server to exchange security-related data. Every JWT has a
-              set of encoded JSON objects, including claims. To ensure that the
-              claims cannot be changed after the token is issued, JWTs are
-              signed using a cryptographic technique.A client and a server can
-              exchange security information using the open standard JSON Web
-              Token. Every JWT has a set of encoded JSON objects, including
-              claims. To ensure that the claims cannot be changed after the
-              token is issued, JWTs are signed using a cryptographic technique.
+              Javascript has a feature called prototypal inheritance that allows
+              you to add methods and properties to objects. It is a technique
+              that allows an item to take on the attributes and operations of
+              another object. We typically use Object.getPrototypeOf and Object
+              to obtain and change an object's [[Prototype]].
             </div>
           </div>
         </div>
@@ -136,7 +132,7 @@ const Blog = () => {
               aria-expanded="false"
               aria-controls="flush-collapseOne"
             >
-              What is the difference between javascript and NodeJS?
+              What is a unit test? Why should we write unit tests?
             </button>
           </h2>
           <div
@@ -146,17 +142,16 @@ const Blog = () => {
             data-bs-parent="#accordionFlushExample"
           >
             <div className="accordion-body py-4 px-5">
-              1. NodeJS: NodeJS is a free, open-source Javascript runtime
-              environment that enables server-side execution of Javascript.
-              Javascript code can execute outside of a browser thanks to
-              Node.js. Node.js has a large number of modules and is primarily
-              used for web development. <br />
-              <br />
-              2. JavaScript: A scripting language is Javascript. The most common
-              abbreviation is JS. One may say that Javascript is the ECMA script
-              that has been updated. Although it is built on prototype
-              inheritance, Javascript is a high-level programming language that
-              makes use of the Oops idea.
+              The smallest testable components of an application, known as
+              units, are separately and independently examined for appropriate
+              operation as part of the unit testing phase of software
+              development. Software developers and occasionally QA employees use
+              this testing methodology when the software is still in the
+              development stage. Unit testing's primary goal is to separate
+              written code for testing to see if it functions as intended. Unit
+              testing is a crucial stage in the development process because,
+              when done properly, it can aid in finding early code flaws that
+              might be more challenging to find in later testing stages.
             </div>
           </div>
         </div>
@@ -182,7 +177,7 @@ const Blog = () => {
               aria-expanded="false"
               aria-controls="flush-collapseOne"
             >
-              How does NodeJS handle multiple requests at the same time?
+              React vs. Angular vs. Vue?
             </button>
           </h2>
           <div
@@ -192,10 +187,36 @@ const Blog = () => {
             data-bs-parent="#accordionFlushExample"
           >
             <div className="accordion-body py-4 px-5">
-              Numerous client requests are received by NodeJS, which adds them
-              to EventQueue. The event-driven architecture approach was used in
-              the construction of NodeJS. The EventLoop in NodeJS is an infinite
-              loop that accepts and processes requests.
+              <h2>React</h2>
+              <p>
+                Facebook created React, which was first made available in 2013.
+                Facebook heavily utilizes React in their products. On the blog
+                page of the React website, just like with Vue, the developers of
+                React post information about their most recent version.
+              </p>
+              <h2>Angular</h2>
+              <p>
+                The oldest of the bunch, Angular, was initially released in 2010
+                and was created by Google. It is a JavaScript framework built on
+                TypeScript. With the release of Angular 2 in 2016 (and the
+                removal of the "JS" from the original name, AngularJS), there
+                was a significant shift in the industry. Angular 2+ is also
+                referred to as Angular. Although AngularJS (version 1) still
+                receives updates, we will concentrate on Angular in this
+                discussion.
+              </p>
+              <h2>Vue</h2>
+              <p>
+                The most recent addition to the group is Vue, sometimes known as
+                Vue.js. Evan You, a former Google employee, created it in 2014.
+                Vue has experienced a significant increase in popularity over
+                the past several years despite not having the support of a major
+                corporation. On the releases page of the official Vue website,
+                the most recent version is always noted. Patreon provides
+                support for Vue contributors. It should be noted that Vue uses
+                TypeScript and has a GitHub repository of its own. Additional
+                reading: Beginner Developers' Guide to Vue.js
+              </p>
             </div>
           </div>
         </div>

@@ -9,10 +9,14 @@ const Navbar = () => {
 
   const menuItems = <React.Fragment>
       <li><Link to="/">Home</Link></li>
+      <li><Link to="/blogs">Blogs</Link></li>
       
       {user?.uid ?
           <>
               <li><Link className="" onClick={logout} >Logout</Link></li>
+              <li tabIndex={2} htmlFor="dashboard-drawer">
+            <Link to="/dashboard">Dashboard</Link>
+          </li>
           </>
           : <li><Link to="/login">Login</Link></li>}
   </React.Fragment>
