@@ -13,6 +13,8 @@ import app from "../../Firebase/Firebase.config";
 
 export const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
+  
+
   const auth = getAuth(app);
   const [loading, setLoading] = useState(true);
 
@@ -25,8 +27,6 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
-
-  
 
   // for currentUser //
   const [user, setUser] = useState(null);
@@ -58,18 +58,11 @@ const AuthProvider = ({ children }) => {
       .catch((err) => console.log(err));
   };
 
-  const logout = () => {
-    const islogout = window.confirm(" Are You sure You Want To logout");
-
-    if (islogout) {
-      return signOut(auth)
-        .then(() => {
-          localStorage.removeItem("accessToken");
-        })
-        .catch((e) => console.log(e));
-    }
-  };
-
+  const logout = () =>{
+    setLoading(true);
+    localStorage.removeItem('accessToken');
+    return signOut(auth);
+}
 
   const authInfo = {
     createUser,

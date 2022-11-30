@@ -10,8 +10,8 @@ const Dashbord = () => {
   const ItemDash = <React.Fragment>
     {
       roleCheck ==='seller'&& <>
-      <Link to="/addproducts"> Add Products</Link>
-     <Link to="/selllerproducts"> My Products </Link>
+      <Link to="/addproduct"> Add Products</Link>
+     <Link to="/myproducts"> My Products </Link>
       </>
     }
     {

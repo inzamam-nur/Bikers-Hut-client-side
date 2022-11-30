@@ -1,12 +1,10 @@
 import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import { AuthContext } from "../../Context/AuthProvider/AUthProvider";
+import 'react-toastify/dist/ReactToastify.css';
 
 const BookingModal = ({ product, setModal }) => {
   const { user } = useContext(AuthContext);
-
-  const navigate = useNavigate();
 
   const submitBook = (event) => {
     event.preventDefault();
@@ -38,11 +36,10 @@ const BookingModal = ({ product, setModal }) => {
       })
         .then((res) => res.json())
         .then((data) => {
-          alert("Wow so easy!");
+          toast("Booked");
           setModal(false);
         });
     } else {
-      navigate("/login");
     }
   };
 
@@ -118,6 +115,7 @@ const BookingModal = ({ product, setModal }) => {
               className="btn btn-outline"
               value="Submit "
             />
+              <ToastContainer />
           </form>
         </div>
       </div>
