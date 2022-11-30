@@ -12,7 +12,7 @@ const AllSeller = () => {
   console.log(allbuyers);
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/allbuyer?email=${user?.email}&type=buyer`)
+      .get(`https://assignment-12-server-sdie.vercel.app/allbuyer?email=${user?.email}&type=buyer`)
       .then((data) => {
         console.log(data.data);
         setAllbuyers(data.data);
@@ -26,7 +26,7 @@ const AllSeller = () => {
     toast(seller?.name);
     const isDelete = window.confirm(`Delete ${seller?.name}`);
     if (isDelete) {
-      fetch("http://localhost:5000/deleteUser?type=seller", {
+      fetch("https://assignment-12-server-sdie.vercel.app/deleteUser?type=seller", {
         method: "DELETE",
         headers: {
           "content-type": "application/json",
@@ -42,7 +42,7 @@ const AllSeller = () => {
   };
 
   const verifySeller = (seller) => {
-    fetch(`http://localhost:5000/verify?email=${user?.email}`, {
+    fetch(`https://assignment-12-server-sdie.vercel.app/verify?email=${user?.email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

@@ -9,7 +9,7 @@ const Categories = () => {
   const [loading, setlodaing] = useState(false);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/categories`).then((data) => {
+    axios.get(`https://assignment-12-server-sdie.vercel.app/categories`).then((data) => {
       //   console.log(data.data);
       setCategories(data.data);
       setlodaing(true);

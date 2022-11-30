@@ -11,7 +11,7 @@ const MyOrders = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/myorders/${user?.email}`, {
+      .get(`https://assignment-12-server-sdie.vercel.app/myorders/${user?.email}`, {
         headers: {
           "content-type": "application/json",
         },

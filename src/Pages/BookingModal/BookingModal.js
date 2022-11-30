@@ -27,7 +27,7 @@ const BookingModal = ({ product, setModal }) => {
     };
 
     if (user) {
-      fetch(`http://localhost:5000/booking`, {
+      fetch(`https://assignment-12-server-sdie.vercel.app/booking`, {
         method: "POST",
         headers: {
           "content-type": "application/json",

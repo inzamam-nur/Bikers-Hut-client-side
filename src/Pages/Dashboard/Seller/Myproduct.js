@@ -9,7 +9,7 @@ const Myproduct = () => {
   const [myProducts, setmyProducts] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/myproducts/${user?.email}`)
+      .get(`https://assignment-12-server-sdie.vercel.app/myproducts/${user?.email}`)
       .then((data) => {
         console.log(data.data);
         setmyProducts(data.data);
@@ -22,7 +22,7 @@ const Myproduct = () => {
       "Are you sure, you want to cancel this order"
     );
     if (proceed) {
-      fetch(`http://localhost:5000/myproducts/${id}`, {
+      fetch(`https://assignment-12-server-sdie.vercel.app/myproducts/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

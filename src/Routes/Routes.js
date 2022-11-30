@@ -69,7 +69,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/products/:name",
-                loader: ({ params }) =>fetch(`http://localhost:5000/products/${params.name}`),
+                loader: ({ params }) =>fetch(`https://assignment-12-server-sdie.vercel.app/products/${params.name}`),
                 element: <PrivateRoute><Products></Products></PrivateRoute>,
               },
          

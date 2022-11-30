@@ -6,7 +6,7 @@ const useRoleCheck = (email) => {
   const [adminloading, setAdminLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/usersTypes/${email}`)
+    fetch(`https://assignment-12-server-sdie.vercel.app/usersTypes/${email}`)
       .then((res) => res.json())
       .then((data) => {
         setRoleCheck(data.userType);
