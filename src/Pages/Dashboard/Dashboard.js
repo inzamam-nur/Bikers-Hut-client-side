@@ -1,34 +1,11 @@
-import React, { Fragment, useContext } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AUthProvider";
 import useRoleCheck from "../../hooks/useRoleCheck";
 
-const Dashbord = () => {
+const Dashboard = () => {
   const { user } = useContext(AuthContext);
-  const [roleCheck] = useRoleCheck(user?.email);
-  console.log(roleCheck);
-  const ItemDash = <React.Fragment>
-    {
-      roleCheck ==='seller'&& <>
-      <Link to="/addproduct"> Add Products</Link>
-     <Link to="/myproducts"> My Products </Link>
-      </>
-    }
-    {
-      roleCheck ==='buyer'  && <>
-      <Link to="/myorders"> My Orders </Link>
-      </>
-    }
-    {
-      roleCheck === 'Admin'&&
-      <>
-             <Link to="/categories">Add Categories </Link>
-              <Link to="/allseller"> All Sellers </Link>
-              <Link to="/allbuyer"> All Buyers </Link>
-              <Link to="/report"> Reported Item </Link>
-      </>
-    }
-  </React.Fragment>
+  const [roleCheck] = useRoleCheck(user.email);
 
   return (
     <div>
@@ -43,12 +20,12 @@ const Dashbord = () => {
           <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80 bg-base-100 text-base-content">
             <li>
-              
-              {
-                ItemDash
-              }
-                <Link to="/myorders"> My Orders </Link>
-              
+              <Link to="/categoriesadd"> Categories </Link>
+              <Link to="/addproduct"> Add Products</Link>
+              <Link to="/myproducts"> My Products </Link>
+              <Link to="/myorders"> My Orders </Link>
+              <Link to="/allsellers"> All Seller </Link>
+              <Link to="/allbuyers"> All Buyer </Link>
             </li>
           </ul>
         </div>
@@ -57,4 +34,4 @@ const Dashbord = () => {
   );
 };
 
-export default Dashbord;
+export default Dashboard;

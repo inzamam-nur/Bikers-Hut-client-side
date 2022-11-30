@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import { AuthContext } from "../../../Context/AuthProvider/AUthProvider";
 
 const Myproduct = () => {
@@ -14,6 +15,27 @@ const Myproduct = () => {
     });
   }, []);
 
+  //Delete My Products
+  const handleDelete = (id) => {
+    const proceed = window.confirm(
+      "Are you sure, you want to cancel this order"
+    );
+    if (proceed) {
+      fetch(`http://localhost:5000/myproducts/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.deletedCount > 0) {
+            alert("deleted successfully");
+            toast("Wow so easy!");
+            const remaining = myProducts.filter((rev) => rev._id !== id);
+            setmyProducts(remaining);
+          }
+        });
+    }
+  };
   return (
     <div>
       <h1 className="text-2xl text-center my-5 ">
@@ -45,7 +67,7 @@ const Myproduct = () => {
                {product.resale_price}
                </td>
                 <td>
-                    <button className="btn btn-error btn-outline">Delete </button>
+                    <button onClick={handleDelete} className="btn btn-error btn-outline">Delete </button>
                 </td>
               </tr>
             })

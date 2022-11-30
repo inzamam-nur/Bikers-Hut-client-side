@@ -4,7 +4,7 @@ import { HiEye, HiEyeOff } from "react-icons/hi";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import useToken from "../../hooks/useToken";
-import {AuthContext} from '../../Context/AuthProvider/AUthProvider'
+import { AuthContext } from "../../Context/AuthProvider/AUthProvider";
 const Login = () => {
   const { login } = useContext(AuthContext);
 
@@ -26,13 +26,11 @@ const Login = () => {
   const from = location.state?.from?.pathname || "/";
 
   // for jwt ////
-  const [tokenEmail,setTokenEmail] =useState('')
-  const [token]=useToken(tokenEmail)
-  if(token){
+  const [tokenEmail, setTokenEmail] = useState("");
+  const [token] = useToken(tokenEmail);
+  if (token) {
     return navigate(from, { replace: true });
   }
-
-
 
   const submitLogin = (data) => {
     const email = data.email;
@@ -43,14 +41,14 @@ const Login = () => {
       .then((result) => {
         toast("success login ");
         setError("");
-        setTokenEmail(email)
+        setTokenEmail(email);
         // console.log(result.user);
       })
       .catch((err) => {
         setError(err.message);
         console.log(err);
       });
-    setError("")
+    setError("");
   };
   return (
     <div className="max-w-md mx-auto my-5 shadow-lg pb-20 pt-20 pr-10 pl-10  rounded">
@@ -114,17 +112,6 @@ const Login = () => {
           </label>
         </div>
 
-        <select
-        name='usertype'
-          {...register("user", { required: true })}
-          className="w-full py-3 my-2"
-        >
-          <option value="buyer">Buyers</option>
-          <option value="seller">Seller</option>
-        </select>
-
-        <p className="text-xl text-red-500 mb-3"> {error}</p>
-
         <input
           type="submit"
           value="Log In"
@@ -137,7 +124,6 @@ const Login = () => {
           Please Sign up
         </Link>
       </p>
-     
     </div>
   );
 };
