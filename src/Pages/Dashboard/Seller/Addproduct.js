@@ -57,6 +57,7 @@ const AddProducts = () => {
         if (data.acknowledged) {
           toast("Product Added Successfully!");
         }
+        navigate('/myproducts')
         reset();
       });
   };
