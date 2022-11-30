@@ -5,11 +5,11 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { getAuth, updateProfile } from "firebase/auth";
 import { AuthContext } from "../../Context/AuthProvider/AUthProvider";
-import app from '../../Firebase/Firebase.config'
+import app from "../../Firebase/Firebase.config";
 import useToken from "../../hooks/useToken";
 
 const Signup = () => {
-  const {  googleSignIn, createUser } = useContext(AuthContext);
+  const { googleSignIn, createUser } = useContext(AuthContext);
   //   console.log(user);
   const auth = getAuth(app);
 
@@ -31,13 +31,11 @@ const Signup = () => {
     setShow(!show);
   };
 
-
-  const [tokenEmail,setTokenEmail] =useState('')
-  const [token]=useToken(tokenEmail)
-  if(token){
+  const [tokenEmail, setTokenEmail] = useState("");
+  const [token] = useToken(tokenEmail);
+  if (token) {
     return navigate(from, { replace: true });
   }
-
 
   const handleSignup = (data) => {
     // console.log(data);
@@ -53,12 +51,10 @@ const Signup = () => {
       .then((result) => {
         updateProfile(auth.currentUser, {
           displayName: name,
-          photoURL:
-            "https://pbs.twimg.com/profile_images/1594759062939267072/mtaBjtjA_400x400.jpg",
         })
           .then(() => {
             toast.success("sign up");
-            setTokenEmail(email)
+            setTokenEmail(email);
             addTodb(user);
             setError("");
             reset();
@@ -79,8 +75,7 @@ const Signup = () => {
       .then((res) => res.json())
       .catch((data) => {
         console.log(data);
-        
-      
+
         alert("Added successfully");
       });
   };
@@ -135,7 +130,6 @@ const Signup = () => {
         <div className="form-control w-full">
           <label className="label">
             <span className="label-text-alt">Your Password</span>
-        
           </label>
           <input
             {...register("password", {
