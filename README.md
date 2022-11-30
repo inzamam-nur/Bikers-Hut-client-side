@@ -3,8 +3,8 @@ Live Link:https://bikers-hut-4ee35.web.app
 
 for admin------------------------------------
 
-email: admin@gmail.com
-password:admin12345678
+adminEmail: admin@gmail.com
+adminPassword:admin12345678
 
 This Is an online Bike resale and buying market.
 
