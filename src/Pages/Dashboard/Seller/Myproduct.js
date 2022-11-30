@@ -4,15 +4,16 @@ import { toast } from "react-toastify";
 import { AuthContext } from "../../../Context/AuthProvider/AUthProvider";
 
 const Myproduct = () => {
-    const { user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
   const [myProducts, setmyProducts] = useState([]);
-  console.log(myProducts)
   useEffect(() => {
-    axios.get(`http://localhost:5000/myproducts/${user?.email}`).then((data) => {
-      console.log(data.data);
-      setmyProducts(data.data);
-    });
+    axios
+      .get(`http://localhost:5000/myproducts/${user?.email}`)
+      .then((data) => {
+        console.log(data.data);
+        setmyProducts(data.data);
+      });
   }, []);
 
   //Delete My Products
@@ -25,15 +26,7 @@ const Myproduct = () => {
         method: "DELETE",
       })
         .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          if (data.deletedCount > 0) {
-            alert("deleted successfully");
-            toast("Wow so easy!");
-            const remaining = myProducts.filter((rev) => rev._id !== id);
-            setmyProducts(remaining);
-          }
-        });
+        .then((data) => {});
     }
   };
   return (
@@ -51,28 +44,28 @@ const Myproduct = () => {
               <th>Name</th>
               <th>Status</th>
               <th>Price</th>
-              <th>Pay</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
-           {
-            myProducts?.map((product,index)=>{
-                return<tr>
-                <th>{index+1}</th>
-                <td>{product.name}</td>
-                <td>
-                  sold
-                </td>
-               <td>
-               {product.resale_price}
-               </td>
-                <td>
-                    <button onClick={handleDelete} className="btn btn-error btn-outline">Delete </button>
-                </td>
-              </tr>
-            })
-           }
-         
+            {myProducts?.map((product, index) =>{
+              return (
+                <tr key={product._id}>
+                  <th>{index + 1}</th>
+                  <td>{product.name}</td>
+                  <td>sold</td>
+                  <td>{product.resale_price}</td>
+                  <td>
+                    <button
+                      onClick={handleDelete}
+                      className="btn btn-error btn-outline"
+                    >
+                      Delete{" "}
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>

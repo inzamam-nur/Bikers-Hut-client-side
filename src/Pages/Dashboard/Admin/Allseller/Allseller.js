@@ -1,4 +1,3 @@
-import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
@@ -6,6 +5,7 @@ import { AuthContext } from "../../../../Context/AuthProvider/AUthProvider";
 import Loader from "../../../../Pages/Loader/Loader";
 const AllSeller = () => {
   const { user } = useContext(AuthContext);
+  const [loading, setlodaing] = useState(false);
 
   const [allsellers, setAllseller] = useState([]);
   console.log(allsellers);
@@ -15,6 +15,8 @@ const AllSeller = () => {
       .then((data) => {
         console.log(data.data);
         setAllseller(data.data);
+        setlodaing(true);
+
       });
   }, []);
 
@@ -34,6 +36,12 @@ const AllSeller = () => {
         .then((data) => {
           console.log(data);
           toast(`Deleted ${seller?.name}`);
+          if (data.deletedCount > 0) {
+            // alert("deleted successfully");
+            toast("Wow so easy!");
+            const remaining = allsellers.filter((seller) => seller.role);
+            setAllseller(remaining);
+          }
         });
     }
   };
@@ -55,6 +63,7 @@ const AllSeller = () => {
 
   return (
     <div className="max-w-[80%] mx-auto">
+          {loading || <Loader />}
       <h1 className="text-center text-3xl  py-5"> Total Seller </h1>
 
       <div className="overflow-x-auto">
